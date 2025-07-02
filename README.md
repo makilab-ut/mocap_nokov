@@ -1,6 +1,9 @@
 ![melodic](https://github.com/NOKOV-MOCAP/mocap_nokov/actions/workflows/melodic.yml/badge.svg)
 ![noetic](https://github.com/NOKOV-MOCAP/mocap_nokov/actions/workflows/noetic.yml/badge.svg)
 
+# Network
+sudo ip addr add 192.168.70.2/24 dev enp0s31f6
+
 # mocap_nokov
 ROS nodes for working with the Nokov motion capture system
 

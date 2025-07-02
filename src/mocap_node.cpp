@@ -72,10 +72,12 @@ namespace mocap_nokov
         );        
       }
 
+      //ROS_INFO("nRigidBodies: %d\n",pFrameOfData->nRigidBodies);//tuika
       for(int i = 0; i< pFrameOfData->nRigidBodies; ++i)
       {
           RigidBody body;
           body.bodyId = pFrameOfData->RigidBodies[i].ID;
+          //ROS_INFO("RigidBodyID: %d\n",pFrameOfData->RigidBodies[i].ID);//tuika
           body.iFrame = pFrameOfData->iFrame;
           body.isTrackingValid = true;
           body.pose.position = {pFrameOfData->RigidBodies[i].x * 0.001f, 
@@ -88,6 +90,8 @@ namespace mocap_nokov
                                   pFrameOfData->RigidBodies[i].qw};
 
           frameObjData.dataFrame.rigidBodies.push_back(body);
+
+          //ROS_INFO("x of RigidBody ID %d : %f\n\n",pFrameOfData->RigidBodies[i].ID,pFrameOfData->RigidBodies[i].x);
       }
   }
 
