@@ -10,7 +10,7 @@
 ## Network Setting
 - NOKOVソフトウェア起動PC： 10.1.1.198 (Subnet Mask: 255.255.255.0)
 - NOKOV ROSドライバー起動PC: 192.168.70.xxx (Subnet Mask: 255.255.255.0)
-- 追加で以下のコマンドをターミナルで起動 (NOKOV系のSubnetと巻研ロボットのサブネットを繋ぐため）
+- 追加で以下のコマンドをターミナルで起動 (NOKOV系のサブネットと巻研ロボットのサブネットを繋ぐため）
 ```
 sudo ip addr add 10.1.1.100/24 dev enp0s31f6
 ```
@@ -66,6 +66,7 @@ roslaunch mocap_nokov mocap.launch
 rosrun mocap_nokov odom2marker.py
 ```
 - 疑似Perceptionコードやデータ処理を行いたい場合もこのサンプルコードを参考
+- Trackingが外れたら値が来ないのではなく99999がくるので、それに合わせた例外処理を書くこと（じゃないとAUV暴走しうる）
 - Ground PoseやPoseは出てこない。そういうものだと思ってほしい。
 - Rvizで出てくる対象の姿勢がおかしかったら、NOKOVソフトでRigid Bodyを登録する基準軸を見直すこと。
 - NOKOV関係でわからないことはMotegi Yuichiと相談すること
