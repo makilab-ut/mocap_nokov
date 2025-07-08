@@ -61,7 +61,7 @@ roslaunch mocap_nokov mocap.launch
 ```
 にPositionとOrientationが入っている。これを活用すること。
 - このOdometryを直接Rvizで出すとカクカクする。
-- なので、Sample用のodom2marker.pyを起動すると生値をもとにMarkerを再発行するのでこちらはRvizでヌルヌル動く。
+- ~~なので、Sample用のodom2marker.pyを起動すると生値をもとにMarkerを再発行するのでこちらはRvizでヌルヌル動く。~~これはすでにmocap.launchに入っている。
 ```
 rosrun mocap_nokov odom2marker.py
 ```
