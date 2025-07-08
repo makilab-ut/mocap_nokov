@@ -121,14 +121,16 @@ if (nh.hasParam(rosparam::keys::RigidBodies))
       //  for (iter = bodyList.begin(); iter != bodyList.end(); ++iter) {
       for (auto const& iter : bodyList)
       {
-        std::string strBodyId = iter.first;
+        //std::string strBodyId = iter.first;
+        int id_cnt=0;//body id bug shusei
         XmlRpc::XmlRpcValue bodyParameters = iter.second;
 
         if (bodyParameters.getType() == XmlRpc::XmlRpcValue::TypeStruct)
         {
           // Load configuration for this rigid body from ROS
           PublisherConfiguration publisherConfig;
-          std::sscanf(strBodyId.c_str(), "%d", &publisherConfig.rigidBodyId);
+          //std::sscanf(strBodyId.c_str(), "%d", &publisherConfig.rigidBodyId);
+          publisherConfig.rigidBodyId=id_cnt;//body id bug shusei
 
           bool readPoseTopicName = impl::check_and_get_param(bodyParameters,
                                    rosparam::keys::PoseTopicName, publisherConfig.poseTopicName);
@@ -211,6 +213,7 @@ if (nh.hasParam(rosparam::keys::RigidBodies))
           }
 
           pubConfigs.push_back(publisherConfig);
+          id_cnt++;//body id bug shusei
         }
       }
     }
